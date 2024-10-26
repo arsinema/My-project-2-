@@ -28,13 +28,13 @@ public class Upgardes : MonoBehaviour
     {
         //Скорость увеличчивается на 20
         upgradeSecondText.text = "Скорость персонажа увеличивается на 2";
-        player.normalSpeed += 2;
+        player.speed += 2;
     }
     public void upgrade3()
     {
         //Вампиризм увеличчивается на 5
         upgradeThirdText.text = "Вампиризм от попадания увеличивается на 5";
-        Player.vampire += 5;
+        player.vampire += 5;
         
     }
     public void OnButtonUp()
