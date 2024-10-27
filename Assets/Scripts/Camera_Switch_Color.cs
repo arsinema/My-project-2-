@@ -16,7 +16,7 @@ public class Camera_Switch_Color : MonoBehaviour
     }
 
     
-    hg
+
     IEnumerator ColorSwitchWhite(float time)
     {
         while (true)
