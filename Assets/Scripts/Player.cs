@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] float sprintSpeed = 10;
     [SerializeField] bool isMouseLookLeft = false;
     [SerializeField] public int vampire = 0;
-    [SerializeField] Enemy enemy;
     private Vector2 moveVector;
 
     [Header("Player damage")]
@@ -36,7 +35,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
     }
 
     private void Update()
@@ -74,6 +72,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Enemy enemy = new Enemy();
         if (collision.gameObject.tag == "enemy")
         {
             playerHP -= enemy.enemyDamage;

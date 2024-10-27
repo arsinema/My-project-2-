@@ -61,9 +61,9 @@ public class Enemy : MonoBehaviour
         if (enemyT == enemyType.Bomber)
         {
             Debug.Log("Bomber");
-            aIPath.endReachedDistance = 1;
+            aIPath.endReachedDistance = 2;
             aIPath.maxSpeed = 6;
-            if (Vector3.Distance(transform.position, playerGameObject.transform.position) < 2)
+            if (Vector3.Distance(transform.position, playerGameObject.transform.position) <= 2)
             {
                 Explode();
             }
@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         else if (enemyT == enemyType.Melee)
         {
             aIPath.maxSpeed = 4;
-            aIPath.endReachedDistance = 1;
+            aIPath.endReachedDistance = 2;
         }    
     }
 
@@ -86,11 +86,7 @@ public class Enemy : MonoBehaviour
         enemyHP = 90;
         enemyDamage += 2;
 
-        spawnPoint = spawPointsEnemy[UnityEngine.Random.Range(0, spawPointsEnemy.Length)];
-        Instantiate(enemyPrefab, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), Quaternion.identity);
-        Destroy(prefab);
-
-
+        Dead();
     }
     public void Hitted(int damage)
     {
@@ -103,14 +99,20 @@ public class Enemy : MonoBehaviour
         
     }
 
+    public void Dead()
+    {
+        spawnPoint = spawPointsEnemy[UnityEngine.Random.Range(0, spawPointsEnemy.Length)];
+        Instantiate(enemyPrefab, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), Quaternion.identity);
+        Destroy(prefab);
+    }
+
     private void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position,
-                                                         explodeRadiys);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodeRadiys);
 
-        Debug.Log("Explode");
+        Debug.Log(colliders == null);
 
-        foreach (Collider collider in colliders)
+        foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("enemy"))
             {
@@ -129,6 +131,8 @@ public class Enemy : MonoBehaviour
             }
             else {  }
         }
+        Dead();
+        Destroy(gameObject);
     }
 }
 
