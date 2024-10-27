@@ -308,12 +308,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469ea7b88ae74dd49858109baa04b3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamage: 5
   damageNumber: {fileID: 8010502683541572917, guid: 606546be376e719479239acc7d0b9ee8, type: 3}
   player: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
   destinationSetter: {fileID: 3523964115815701736}
+  aIPath: {fileID: 5621735144505908265}
+  explodeRadiys: 2
+  explodeDamage: 100
+  enemyT: 1
   enemyHP: 100
   enemySouls: 100
+  enemyDamage: 5
   enemyPrefab: {fileID: 2080877547792258295, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
   spawPointsEnemy:
   - {fileID: 0}

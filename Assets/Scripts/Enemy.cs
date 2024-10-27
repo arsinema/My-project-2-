@@ -9,23 +9,28 @@ public class Enemy : MonoBehaviour
 {
     //Главные настройки персонажа
     [Header("Enemy preference")]
-    [SerializeField] public int enemyDamage = 5;
+    
     [SerializeField] private DamageNumber damageNumber;
     [SerializeField] private Player player;
     private GameObject playerGameObject;
     [SerializeField] private AIDestinationSetter destinationSetter;
-    private AIPath aIPath;
-    [SerializeField] private enum enemyType
+    [SerializeField] private AIPath aIPath;
+
+    [SerializeField] float explodeRadiys;
+    [SerializeField] int explodeDamage;
+    public enum enemyType
     {
-        Bomber,
-        Range,
-        Melee
+        Bomber = 1,
+        Range = 2,
+        Melee = 3
     };
+    [SerializeField] private enemyType enemyT = Enemy.enemyType.Melee;
     
     //Очки перносажа
     [Header("Enemy points")]
     [SerializeField] public int enemyHP = 100;
     [SerializeField] public int enemySouls = 100;
+    [SerializeField] public int enemyDamage = 5;
 
     //Создание новога врага после убийства
     [Header("Create new enemy with new preference")]
@@ -34,9 +39,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject prefab;
     private GameObject spawnPoint;
 
+    
+
     private void Start()
     {
-        aIPath = GetComponent<AIPath>();
         spawPointsEnemy[0] = GameObject.Find("Enemy spawn point");
         spawPointsEnemy[1] = GameObject.Find("Enemy spawn point");
         spawPointsEnemy[2] = GameObject.Find("Enemy spawn point (1)");
@@ -44,30 +50,34 @@ public class Enemy : MonoBehaviour
 
     }
 
+    
+
     private void Update()
     {
         playerGameObject = GameObject.Find("Player");
        
         destinationSetter.target = playerGameObject.transform;
 
-        switch (enemyType)
+        if (enemyT == enemyType.Bomber)
         {
-            case enemyType.Bomber:
-                aIPath.endReachedDistance = 1;
-                aIPath.maxSpeed = 6;
-                break;
-
-            case enemyType.Range:
-                aIPath.endReachedDistance = 4;
-                break;
-
-            case enemyType.Melee:
-                aIPath.endReachedDistance = 1;
-                break;
-            default:
-                break;
+            Debug.Log("Bomber");
+            aIPath.endReachedDistance = 1;
+            aIPath.maxSpeed = 6;
+            if (Vector3.Distance(transform.position, playerGameObject.transform.position) < 2)
+            {
+                Explode();
+            }
         }
-
+        else if (enemyT == enemyType.Range)
+        {
+            aIPath.maxSpeed = 2;
+            aIPath.endReachedDistance = 4;
+        }
+        else if (enemyT == enemyType.Melee)
+        {
+            aIPath.maxSpeed = 4;
+            aIPath.endReachedDistance = 1;
+        }    
     }
 
     public void HitReact()
@@ -91,6 +101,34 @@ public class Enemy : MonoBehaviour
         damageNumber.Spawn(textSpawn, damage, transform);
         return;
         
+    }
+
+    private void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position,
+                                                         explodeRadiys);
+
+        Debug.Log("Explode");
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("enemy"))
+            {
+                Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+
+                enemy.enemyHP -= explodeDamage;
+                Debug.Log("Enemy explode");
+            }
+            else if (collider.CompareTag("Player"))
+            {
+                Debug.Log("Player explode");
+
+                Player player = collider.gameObject.GetComponent<Player>();
+
+                player.playerHP -= explodeDamage;
+            }
+            else {  }
+        }
     }
 }
 
