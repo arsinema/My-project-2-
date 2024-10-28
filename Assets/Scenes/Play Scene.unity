@@ -237,18 +237,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 721222486}
     - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
-      propertyPath: enemyT
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
-      propertyPath: explodeDamage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
-      propertyPath: explodeRadiys
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
       propertyPath: 'spawPointsEnemy.Array.data[0]'
       value: 
       objectReference: {fileID: 1094397239}

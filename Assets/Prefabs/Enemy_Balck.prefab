@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6614495700142240518}
+  - {fileID: 4287915999166301113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9101293601701507229
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 81fecd6749513b65-a8749b0655ba5499
+  guid: e3629930ee52040a-1050622d47063f8d
 --- !u!1 &6240183740584471174
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +314,11 @@ MonoBehaviour:
   destinationSetter: {fileID: 3523964115815701736}
   aIPath: {fileID: 5621735144505908265}
   explodeRadiys: 2
-  explodeDamage: 100
-  enemyT: 1
+  explodeDamage: 20
+  rangeDamage: 10
+  rechargeTime: 3
+  shootPoint: {fileID: 7517404150672053336}
+  enemyT: 2
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5
@@ -325,3 +329,34 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   prefab: {fileID: 2080877547792258295}
+--- !u!1 &7517404150672053336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4287915999166301113}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4287915999166301113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517404150672053336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.699, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8602693607929724355}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

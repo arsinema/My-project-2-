@@ -16,8 +16,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AIDestinationSetter destinationSetter;
     [SerializeField] private AIPath aIPath;
 
+    [Header("Bomb enemy preferense")]
     [SerializeField] float explodeRadiys;
     [SerializeField] int explodeDamage;
+
+    [Header("Range enemy preferense")]
+    [SerializeField] int rangeDamage;
+    [SerializeField] float rechargeTime = 3.0f;
+    [SerializeField] GameObject shootPoint;
+    private bool hited = true;
     public enum enemyType
     {
         Bomber = 1,
@@ -60,9 +67,9 @@ public class Enemy : MonoBehaviour
 
         if (enemyT == enemyType.Bomber)
         {
-            Debug.Log("Bomber");
             aIPath.endReachedDistance = 2;
             aIPath.maxSpeed = 6;
+            aIPath.whenCloseToDestination = CloseToDestinationMode.ContinueToExactDestination;
             if (Vector3.Distance(transform.position, playerGameObject.transform.position) <= 2)
             {
                 Explode();
@@ -70,19 +77,24 @@ public class Enemy : MonoBehaviour
         }
         else if (enemyT == enemyType.Range)
         {
+            if (hited)
+            {
+                RangeAtack();
+            }
             aIPath.maxSpeed = 2;
             aIPath.endReachedDistance = 4;
+            aIPath.whenCloseToDestination = CloseToDestinationMode.Stop;
         }
         else if (enemyT == enemyType.Melee)
         {
             aIPath.maxSpeed = 4;
             aIPath.endReachedDistance = 2;
+            aIPath.whenCloseToDestination = CloseToDestinationMode.ContinueToExactDestination;
         }    
     }
 
     public void HitReact()
     {
-        Debug.Log("Враг убит");
         enemyHP = 90;
         enemyDamage += 2;
 
@@ -101,6 +113,24 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
+        int rand = UnityEngine.Random.Range(1, 3);
+
+        
+
+        Enemy enemy = new Enemy();
+        if(rand == 1)
+        {
+            enemy.enemyT = enemyType.Bomber;
+        }
+        if (rand == 2)
+        {
+            enemy.enemyT = enemyType.Range;
+        }
+        if (rand == 3)
+        {
+            enemy.enemyT = enemyType.Melee;
+        }
+
         spawnPoint = spawPointsEnemy[UnityEngine.Random.Range(0, spawPointsEnemy.Length)];
         Instantiate(enemyPrefab, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), Quaternion.identity);
         Destroy(prefab);
@@ -110,8 +140,6 @@ public class Enemy : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodeRadiys);
 
-        Debug.Log(colliders == null);
-
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("enemy"))
@@ -119,11 +147,9 @@ public class Enemy : MonoBehaviour
                 Enemy enemy = collider.gameObject.GetComponent<Enemy>();
 
                 enemy.enemyHP -= explodeDamage;
-                Debug.Log("Enemy explode");
             }
             else if (collider.CompareTag("Player"))
             {
-                Debug.Log("Player explode");
 
                 Player player = collider.gameObject.GetComponent<Player>();
 
@@ -133,6 +159,38 @@ public class Enemy : MonoBehaviour
         }
         Dead();
         Destroy(gameObject);
+    }
+
+    private void RangeAtack()
+    {
+        Vector3 diference = playerGameObject.transform.position - shootPoint.transform.position;
+
+        RaycastHit2D hit = Physics2D.Raycast(shootPoint.transform.position, diference);
+
+        Debug.DrawRay(shootPoint.transform.position, diference,Color.red, 3f);
+        Debug.Log(hit.collider.tag);
+        if (hited)
+        {
+            if (hit.collider.tag == "Player")
+            {
+                Debug.Log("Hit");
+                Player player = hit.collider.gameObject.GetComponent<Player>();
+
+                player.playerHP -= rangeDamage;
+                
+            }
+        }
+        hited = false;
+        StartCoroutine(RechargeRangeAtack());
+
+    }
+
+    IEnumerator RechargeRangeAtack()
+    {
+        
+        yield return new WaitForSeconds(rechargeTime);
+        hited = true;
+        
     }
 }
 
