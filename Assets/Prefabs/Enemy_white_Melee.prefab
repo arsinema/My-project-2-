@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5621735144505908265}
   - component: {fileID: 2080957146627372339}
   m_Layer: 0
-  m_Name: Enemy_white
+  m_Name: Enemy_white_Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ac57fc3c9dacdaab-7bd7a652dd58c8c0
+  guid: 14bcbbe7fc981b2f-3223e5e36a5068ff
 --- !u!1 &6240183740584471174
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   rangeDamage: 10
   rechargeTime: 3
   shootPoint: {fileID: 637832874751517143}
-  enemyT: 2
+  enemyT: 3
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5

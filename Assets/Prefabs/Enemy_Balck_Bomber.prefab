@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &637832874751517143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1005148182286844898}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1005148182286844898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637832874751517143}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.988, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8602693607929724355}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080877547792258295
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,8 +14,8 @@ GameObject:
   - component: {fileID: 5621735144505908265}
   - component: {fileID: 2080957146627372339}
   m_Layer: 0
-  m_Name: Enemy_white
-  m_TagString: Untagged
+  m_Name: Enemy_Balck_Bomber
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6614495700142240518}
-  - {fileID: 1005148182286844898}
+  - {fileID: 4287915999166301113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9101293601701507229
@@ -126,7 +95,7 @@ MonoBehaviour:
   radius: 1
   height: 2
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -145,12 +114,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 6
+  slowdownDistance: 4
   pickNextWaypointDist: 2
-  endReachedDistance: 4
+  endReachedDistance: 1.5
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &2080957146627372339
 MonoBehaviour:
@@ -164,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ac57fc3c9dacdaab-7bd7a652dd58c8c0
+  guid: e3629930ee52040a-1050622d47063f8d
 --- !u!1 &6240183740584471174
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +146,7 @@ GameObject:
   - component: {fileID: 6152028236805248422}
   - component: {fileID: 2773844103247945929}
   - component: {fileID: 5715245970790969701}
-  - component: {fileID: 1732992482660058403}
+  - component: {fileID: 4581718003103448707}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -245,7 +214,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -328,7 +297,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1732992482660058403
+--- !u!114 &4581718003103448707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,8 +317,8 @@ MonoBehaviour:
   explodeDamage: 20
   rangeDamage: 10
   rechargeTime: 3
-  shootPoint: {fileID: 637832874751517143}
-  enemyT: 2
+  shootPoint: {fileID: 7517404150672053336}
+  enemyT: 1
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5
@@ -360,6 +329,37 @@ MonoBehaviour:
   - {fileID: 0}
   prefab: {fileID: 2080877547792258295}
   enemesPrefab:
-  - {fileID: 2080877547792258295, guid: 13b9630ebb13de8459154715aae3f51f, type: 3}
-  - {fileID: 2080877547792258295, guid: 312419107318e484f92506d7834cced3, type: 3}
-  - {fileID: 2080877547792258295, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
+  - {fileID: 2080877547792258295, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
+  - {fileID: 2080877547792258295, guid: 78a03630c485d4b498831b6f9fbab743, type: 3}
+  - {fileID: 2080877547792258295, guid: 9dc27ab12bce40140a0e73455c2a1336, type: 3}
+--- !u!1 &7517404150672053336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4287915999166301113}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4287915999166301113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517404150672053336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.699, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8602693607929724355}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

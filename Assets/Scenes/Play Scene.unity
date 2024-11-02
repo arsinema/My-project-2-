@@ -237,6 +237,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 721222486}
     - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
+      propertyPath: enemyT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
       propertyPath: 'spawPointsEnemy.Array.data[0]'
       value: 
       objectReference: {fileID: 1094397239}
@@ -252,6 +256,10 @@ PrefabInstance:
       propertyPath: 'spawPointsEnemy.Array.data[3]'
       value: 
       objectReference: {fileID: 2127580094}
+    - target: {fileID: 6240183740584471174, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8602693607929724355, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -695,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -744,7 +752,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &708438453
 RectTransform:
@@ -1193,8 +1201,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1475,8 +1483,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1898,6 +1906,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 721222486}
+    - target: {fileID: 6240183740584471174, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8602693607929724355, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -2218,6 +2230,14 @@ PrefabInstance:
     - target: {fileID: 74250860199340809, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611773128410988498, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381649552469131222, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
       propertyPath: HPText

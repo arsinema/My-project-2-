@@ -31,6 +31,9 @@ public class Enemy : MonoBehaviour
         Range = 2,
         Melee = 3
     };
+
+    
+
     [SerializeField] private enemyType enemyT = Enemy.enemyType.Melee;
     
     //Очки перносажа
@@ -41,9 +44,9 @@ public class Enemy : MonoBehaviour
 
     //Создание новога врага после убийства
     [Header("Create new enemy with new preference")]
-    [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject[] spawPointsEnemy;
     [SerializeField] GameObject prefab;
+    [SerializeField] GameObject[] enemesPrefab;
     private GameObject spawnPoint;
 
     
@@ -113,26 +116,9 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
-        int rand = UnityEngine.Random.Range(1, 3);
-
-        
-
-        Enemy enemy = new Enemy();
-        if(rand == 1)
-        {
-            enemy.enemyT = enemyType.Bomber;
-        }
-        if (rand == 2)
-        {
-            enemy.enemyT = enemyType.Range;
-        }
-        if (rand == 3)
-        {
-            enemy.enemyT = enemyType.Melee;
-        }
-
+        int rand = UnityEngine.Random.Range(0, enemesPrefab.Length);
         spawnPoint = spawPointsEnemy[UnityEngine.Random.Range(0, spawPointsEnemy.Length)];
-        Instantiate(enemyPrefab, new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), Quaternion.identity);
+        Instantiate(enemesPrefab[rand], new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0), Quaternion.identity);
         Destroy(prefab);
     }
 
@@ -165,7 +151,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 diference = playerGameObject.transform.position - shootPoint.transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(shootPoint.transform.position, diference);
+        RaycastHit2D hit = Physics2D.Raycast(shootPoint.transform.position, diference, Mathf.Infinity, 7);
 
         Debug.DrawRay(shootPoint.transform.position, diference,Color.red, 3f);
         Debug.Log(hit.collider.tag);
@@ -193,4 +179,3 @@ public class Enemy : MonoBehaviour
         
     }
 }
-

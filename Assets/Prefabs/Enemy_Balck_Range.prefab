@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5621735144505908265}
   - component: {fileID: 2080957146627372339}
   m_Layer: 0
-  m_Name: Enemy_Balck
+  m_Name: Enemy_Balck_Range
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: e3629930ee52040a-1050622d47063f8d
+  guid: 951ce32184b41f26-7d55c3517bd5d315
 --- !u!1 &6240183740584471174
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,13 +322,16 @@ MonoBehaviour:
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5
-  enemyPrefab: {fileID: 2080877547792258295, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
   spawPointsEnemy:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   prefab: {fileID: 2080877547792258295}
+  enemesPrefab:
+  - {fileID: 2080877547792258295, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
+  - {fileID: 2080877547792258295, guid: 78a03630c485d4b498831b6f9fbab743, type: 3}
+  - {fileID: 2080877547792258295, guid: 9dc27ab12bce40140a0e73455c2a1336, type: 3}
 --- !u!1 &7517404150672053336
 GameObject:
   m_ObjectHideFlags: 0

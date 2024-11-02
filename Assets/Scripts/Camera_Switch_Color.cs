@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Camera_Switch_Color : MonoBehaviour
@@ -7,6 +8,10 @@ public class Camera_Switch_Color : MonoBehaviour
     private Camera _camera;
     [SerializeField] float time = 10f;
     [SerializeField] float transitionTime = 0.1f;
+
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI HPText;
+
     private bool _enabled = true;
 
     private void Start()
@@ -30,6 +35,7 @@ public class Camera_Switch_Color : MonoBehaviour
                 _camera.backgroundColor = Color.Lerp(_camera.backgroundColor, targetColor, elapsedTime / transitionTime);
 
                 elapsedTime += Time.deltaTime;
+
                 yield return null;
                 
             }
