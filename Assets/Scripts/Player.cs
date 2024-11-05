@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float sprintSpeed = 10;
     [SerializeField] bool isMouseLookLeft = false;
     [SerializeField] public int vampire = 0;
+    [SerializeField] public GameObject Upgardes;
     private Vector2 moveVector;
 
     [Header("Player damage")]
@@ -50,11 +51,12 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (playerSouls == 2000)
+        if (playerSouls == 200)
         {
+            Time.timeScale = 0f;
             basicDamage += 10;
             playerSouls = 0;
-            Instantiate(canvasPrefab);
+            Upgardes.SetActive(true);
         }
 
         scoreText.text = ("Души: " + playerSouls.ToString());

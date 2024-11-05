@@ -18,6 +18,7 @@ public class Upgardes : MonoBehaviour
     [SerializeField] TextMeshProUGUI upgradeThirdText;
 
     [SerializeField] Player player;
+    [SerializeField] public GameObject gameObject;
 
     public void upgrade1()
     {
@@ -35,10 +36,11 @@ public class Upgardes : MonoBehaviour
         //Вампиризм увеличчивается на 5
         upgradeThirdText.text = "Вампиризм от попадания увеличивается на 5";
         player.vampire += 5;
-        
+
     }
     public void OnButtonUp()
     {
-        Destroy(canvas);
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
