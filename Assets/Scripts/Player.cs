@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (playerSouls == 200)
+        if (playerSouls == 2000)
         {
             Time.timeScale = 0f;
             basicDamage += 10;

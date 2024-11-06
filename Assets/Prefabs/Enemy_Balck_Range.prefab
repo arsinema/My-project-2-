@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2773844103247945929}
   - component: {fileID: 5715245970790969701}
   - component: {fileID: 4581718003103448707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -313,12 +313,13 @@ MonoBehaviour:
   player: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
   destinationSetter: {fileID: 3523964115815701736}
   aIPath: {fileID: 5621735144505908265}
+  spriteRenderer: {fileID: 6152028236805248422}
   explodeRadiys: 2
   explodeDamage: 20
   rangeDamage: 10
   rechargeTime: 3
   shootPoint: {fileID: 7517404150672053336}
-  enemyT: 2
+  enemyT: 1
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5

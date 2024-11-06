@@ -184,7 +184,7 @@ MonoBehaviour:
   sprintSpeed: 10
   isMouseLookLeft: 0
   vampire: 0
-  enemy: {fileID: 0}
+  Upgardes: {fileID: 0}
   basicDamage: 50
   shotPoint: {fileID: 4507913026613772685}
   scoreText: {fileID: 0}
@@ -419,6 +419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   transitionTime: 1.5
+  scoreText: {fileID: 0}
+  HPText: {fileID: 0}
 --- !u!114 &2611773128410988498
 MonoBehaviour:
   m_ObjectHideFlags: 0

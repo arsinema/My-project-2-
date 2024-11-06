@@ -324,6 +324,10 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 7313189269432067386, guid: 57fd2f85d8492ab459a6bf2b16d68d8a, type: 3}
+      propertyPath: gameObject
+      value: 
+      objectReference: {fileID: 1895463366}
     - target: {fileID: 9072317914690975506, guid: 57fd2f85d8492ab459a6bf2b16d68d8a, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -350,10 +354,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 721222486}
     - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
-      propertyPath: enemyT
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581718003103448707, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
       propertyPath: 'spawPointsEnemy.Array.data[0]'
       value: 
       objectReference: {fileID: 1094397239}
@@ -369,10 +369,6 @@ PrefabInstance:
       propertyPath: 'spawPointsEnemy.Array.data[3]'
       value: 
       objectReference: {fileID: 2127580094}
-    - target: {fileID: 6240183740584471174, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8602693607929724355, guid: 24978b8070cab1148a27d3d63c16ba7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -2068,6 +2064,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
+--- !u!1 &1895463366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1740137304940378240, guid: 57fd2f85d8492ab459a6bf2b16d68d8a, type: 3}
+  m_PrefabInstance: {fileID: 162337993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983361362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,14 +2345,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2611773128410988498, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381649552469131222, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
       propertyPath: HPText
       value: 
@@ -2359,7 +2352,7 @@ PrefabInstance:
     - target: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
       propertyPath: Upgardes
       value: 
-      objectReference: {fileID: 7313189269432067386, guid: 57fd2f85d8492ab459a6bf2b16d68d8a, type: 3}
+      objectReference: {fileID: 1895463366}
     - target: {fileID: 5438365739009923436, guid: 4afc167c9f3834a43a51b6ece3597fd0, type: 3}
       propertyPath: joystick
       value: 

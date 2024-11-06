@@ -11,6 +11,7 @@ public class Camera_Switch_Color : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI HPText;
+    [SerializeField] GameObject[] walls;
 
     private bool _enabled = true;
 
@@ -28,11 +29,18 @@ public class Camera_Switch_Color : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
             Color targetColor = _enabled ? Color.white : Color.black;
+            Color nonTargetColor = !_enabled ? Color.white : Color.black;
             float elapsedTime = 0f;
 
             while (elapsedTime < transitionTime)
             {
                 _camera.backgroundColor = Color.Lerp(_camera.backgroundColor, targetColor, elapsedTime / transitionTime);
+                foreach (GameObject wall in walls)
+                {
+                    SpriteRenderer spriteRenderer = wall.GetComponent<SpriteRenderer>();
+
+                    spriteRenderer.color = Color.Lerp(_camera.backgroundColor, nonTargetColor, elapsedTime / transitionTime);
+                }
 
                 elapsedTime += Time.deltaTime;
 

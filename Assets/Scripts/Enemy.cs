@@ -13,8 +13,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private DamageNumber damageNumber;
     [SerializeField] private Player player;
     private GameObject playerGameObject;
+    private Color originalColor;
     [SerializeField] private AIDestinationSetter destinationSetter;
     [SerializeField] private AIPath aIPath;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private float timeToWaitAftherTakingDamage = 0.1f;
+    public enum enemyType
+    {
+        Bomber = 1,
+        Range = 2,
+        Melee = 3
+    };
+    [SerializeField] private enemyType enemyT = Enemy.enemyType.Melee;
 
     [Header("Bomb enemy preferense")]
     [SerializeField] float explodeRadiys;
@@ -25,17 +35,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float rechargeTime = 3.0f;
     [SerializeField] GameObject shootPoint;
     private bool hited = true;
-    public enum enemyType
-    {
-        Bomber = 1,
-        Range = 2,
-        Melee = 3
-    };
 
-    
-
-    [SerializeField] private enemyType enemyT = Enemy.enemyType.Melee;
-    
     //Очки перносажа
     [Header("Enemy points")]
     [SerializeField] public int enemyHP = 100;
@@ -58,6 +58,9 @@ public class Enemy : MonoBehaviour
         spawPointsEnemy[2] = GameObject.Find("Enemy spawn point (1)");
         spawPointsEnemy[3] = GameObject.Find("Enemy spawn point (2)");
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        originalColor = spriteRenderer.color;
     }
 
     
@@ -105,7 +108,7 @@ public class Enemy : MonoBehaviour
     }
     public void Hitted(int damage)
     {
-
+        ChangeCollorAfterTakingDamage();
         player.playerHP += player.vampire;
         Vector3 textSpawn = new Vector3(transform.position.x, transform.position.y + 1, 0);
         enemyHP -= damage;
@@ -177,5 +180,18 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(rechargeTime);
         hited = true;
         
+    }
+
+    private void ChangeCollorAfterTakingDamage()
+    {
+        spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.1f);
+
+        
+        Invoke("RestoreColor", timeToWaitAftherTakingDamage); 
+    }
+
+    private void RestoreColor()
+    {
+        spriteRenderer.color = originalColor;
     }
 }
