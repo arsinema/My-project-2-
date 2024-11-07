@@ -34,7 +34,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6614495700142240518}
-  - {fileID: 4287915999166301113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9101293601701507229
@@ -134,6 +133,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 951ce32184b41f26-7d55c3517bd5d315
+--- !u!1 &3526081379049964877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6323312542922160342}
+  m_Layer: 7
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6323312542922160342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526081379049964877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.87, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6614495700142240518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6240183740584471174
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +196,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6323312542922160342}
   m_Father: {fileID: 8602693607929724355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6152028236805248422
@@ -314,12 +345,12 @@ MonoBehaviour:
   destinationSetter: {fileID: 3523964115815701736}
   aIPath: {fileID: 5621735144505908265}
   spriteRenderer: {fileID: 6152028236805248422}
+  enemyT: 2
   explodeRadiys: 2
   explodeDamage: 20
   rangeDamage: 10
   rechargeTime: 3
-  shootPoint: {fileID: 7517404150672053336}
-  enemyT: 1
+  shootPoint: {fileID: 3526081379049964877}
   enemyHP: 100
   enemySouls: 100
   enemyDamage: 5
@@ -333,34 +364,3 @@ MonoBehaviour:
   - {fileID: 2080877547792258295, guid: 16dc43b20459de44986d250dbef484c7, type: 3}
   - {fileID: 2080877547792258295, guid: 78a03630c485d4b498831b6f9fbab743, type: 3}
   - {fileID: 2080877547792258295, guid: 9dc27ab12bce40140a0e73455c2a1336, type: 3}
---- !u!1 &7517404150672053336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4287915999166301113}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4287915999166301113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7517404150672053336}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.699, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8602693607929724355}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
