@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 diference = playerGameObject.transform.position - shootPoint.transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(shootPoint.transform.position, diference, Mathf.Infinity, 7);
+        RaycastHit2D hit = Physics2D.Raycast(shootPoint.transform.position, diference);
 
         Debug.DrawRay(shootPoint.transform.position, diference,Color.red, 3f);
         Debug.Log(hit.collider.tag);
@@ -172,6 +172,16 @@ public class Enemy : MonoBehaviour
         hited = false;
         StartCoroutine(RechargeRangeAtack());
 
+    }
+    public void ChangeColor()
+    {
+        StartCoroutine(ChangeColorCoroutine());
+    }
+    private IEnumerator ChangeColorCoroutine()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(2);
+        spriteRenderer.color = originalColor;
     }
 
     IEnumerator RechargeRangeAtack()

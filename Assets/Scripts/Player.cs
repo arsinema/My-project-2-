@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] public int vampire = 0;
     [SerializeField] public GameObject Upgardes;
     private Vector2 moveVector;
+    [SerializeField] private float radiysToSeeEnemy = 7.0f;
 
     [Header("Player damage")]
     [SerializeField] public int basicDamage = 40;
@@ -80,6 +81,17 @@ public class Player : MonoBehaviour
             playerHP -= enemy.enemyDamage;
         }
 
+    }
+
+    public void EnemySee()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radiysToSeeEnemy);
+
+        foreach(Collider2D collider in colliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            enemy.ChangeColor();
+        }
     }
 
     
